@@ -153,7 +153,7 @@ HRWA=SparseArray[(Flatten[Table[Table[{elem[n,q],elem[n-1,q+1]}->gkkp1[[q+1]]Sqr
 (*The block below diagonalizes the system*)
 Block[{Uul={},eigenenergy={},bareenergy={},Ud={},eigenenergyordered={},intlist={},eigenpositions={},barepositions={},eigenorder={},bareorder={},ref,system,amps,sgn,ladder},
 	system=Quiet[Eigensystem[N[Hr+Hq+HRWA]]];
-	Uul=SparseArray[Chop[system[[2]],10^-8]];(*Unordered unitary diagonalizer matrix, Uul\[ConjugateTranspose].H.Uul=Subscript[H, D]*)
+	Uul=SparseArray[Chop[system[[2]],10^-7]];(*Unordered unitary diagonalizer matrix, Uul\[ConjugateTranspose].H.Uul=Subscript[H, D]*)
 	eigenenergy=system[[1]];(*Unordered eigenenergy*)
 	bareenergy=Normal[Diagonal[N[Hr+Hq]]];
 	Ud=SparseArray[{{1,1}->1,{nmax*tmax,nmax*tmax}->1}];
