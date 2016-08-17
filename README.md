@@ -12,6 +12,7 @@ Find the qubit levels, as well as the phton numbers at which level crossing betw
 
 ## The code
 The package consists of functions that do the following:
+
 1. Diagonalize the qubit-resonator system in the RWA case, and correctly sort (label) the resulting eigenstate/eigenenergy pairs.
 2. Find the energy resonance conditions, to get the photon numbers at which the level crossing occurs.
 3. Calculate the effective coupling between the resonant levels, due to non-RWA terms.
@@ -25,16 +26,17 @@ The package consists of functions that do the following:
 ## Usage
 The repo includes a Mathematica notebook named [test.nb](./test.nb), which contains examples of all the functions of the package.
 
-In general, to get a complete manula for each function, run (in notebook or console of Mathematica) `?FunctionName`
+In general, to get a complete manual for each function, run (in notebook or console of Mathematica) `?FunctionName`
 
 ## Known issues
 ##### Failing at large n
 When number of photon increases above some value (this value depends on parameters), the diagonalizer fails. This issue does not depen on how powerfull your machine is. This happens due to the way that I am sorting (labeling) the eigenvalues, and there is a physical reason for this. I may know a way to fix this, see the [future idea section](#different-digonalizing-and-sorting).
 
+As a simple workaround, and also as a way to speed up the calculations, I have introduced `g_num`, which essentially allows you to get your desired results for large number of photons, while only simulating a moderately large system. See manuals for more information.
 ## Future improvements
 
 ##### Different digonalizing and sorting
-The system can be diagonalized in block matrices, and then all these matrices can be combined toghether to form the total system. This is not expected to make things faster, but it most probably prevents the issue of failing to sort the eigenenergies at large photon numbers.
+In this different way, the system can be diagonalized in block matrices, and then all these matrices can be combined toghether to form the total system. This is not expected to make things faster, but it most probably prevents the issue of failing to sort the eigenenergies at large photon numbers.
 
 ##### Sorting nonRWA Hamiltonian eigenenergies
-This code diagonalizes and sorts the RWA Hamiltonian of the system. Although for the typical parameters in the circuit QED measurements of transmons this is a very good approximation, but one can also calculate the non-RWA eigenenergies and eigenstates. However, one can no longer use the same [method](https://arxiv.org/abs/1606.04204) to sort these non-RWA eigenenergies. There exists a way to sort these new eigenenergies, and I have a (not-cleaned-up) code that does this. I will add that as a new function to this package in the future.
+This code diagonalizes and sorts the RWA Hamiltonian of the system. Although for the typical parameters in the circuit QED measurements of transmons this is a very good approximation, but one can also calculate the non-RWA eigenenergies and eigenstates. However, one can no longer use the same [method](https://arxiv.org/abs/1606.04204) to sort these non-RWA eigenenergies. Luckily, there exists a somewhat robust way to sort these new eigenenergies, and I have a (not-cleaned-up) code that does this. I will add that as a new function to this package in the future.
