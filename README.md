@@ -5,7 +5,7 @@ This is a mathematica package that calulates level crossings and effective coupl
 ## System
 The system consists of a [transmon](https://arxiv.org/abs/cond-mat/0703002) coupled to a readout resonator through a charge-charge interaction. The qubit state can be [read](http://arxiv.org/abs/1401.0257) by populating the readout resonator and measureing amplitude/phase shift of the leaking field of the resoantor.
 
-Here I (and therefore this code) assume that the eigenenergies of the system do not change _much_ doe to non-RWA terms. This is a very good assumption for the typical parameters in the circuit QED measurements of transmons, and I have also checked it separately (see [Future improvement](#Sorting-nonRWA-Hamiltonian-eigenenergies))
+Here I (and therefore this code) assume that the eigenenergies of the system do not change _much_ doe to non-RWA terms. This is a very good assumption for the typical parameters in the circuit QED measurements of transmons, and I have also checked it separately (see [Future improvement](#sorting-nonrwa-hamiltonian-eigenenergies))
 
 ## Goal
 Find the qubit levels, as well as the phton numbers at which level crossing between qubit-resonator levels occures.
@@ -29,7 +29,7 @@ In general, to get a complete manula for each function, run (in notebook or cons
 
 ## Known issues
 ##### Failing at large n
-When number of photon increases above some value (this value depends on parameters), the diagonalizer fails. This issue does not depen on how powerfull your machine is. This happens due to the way that I am sorting (labeling) the eigenvalues, and there is a physical reason for this. I may know a way to fix this, see the [future idea section](#Different-digonalizing-and-sorting).
+When number of photon increases above some value (this value depends on parameters), the diagonalizer fails. This issue does not depen on how powerfull your machine is. This happens due to the way that I am sorting (labeling) the eigenvalues, and there is a physical reason for this. I may know a way to fix this, see the [future idea section](#different-digonalizing-and-sorting).
 
 ## Future improvements
 
