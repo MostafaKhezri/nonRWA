@@ -5,7 +5,7 @@ This is a mathematica package that calulates level crossings and effective coupl
 ## System
 The system consists of a [transmon](https://arxiv.org/abs/cond-mat/0703002) coupled to a readout resonator through a charge-charge interaction. The qubit state can be [read](http://arxiv.org/abs/1401.0257) by populating the readout resonator and measureing amplitude/phase shift of the leaking field of the resoantor.
 
-Here I (and therefore this code) assume that the eigenenergies of the system do not change _much_ doe to non-RWA terms. This is a very good assumption for the typical parameters in the circuit QED measurements of transmons, and I have also checked it separately (see [Future improvement](#Sorting-nonRWA-Hamiltonian-eigenstates/eigenstates))
+Here I (and therefore this code) assume that the eigenenergies of the system do not change _much_ doe to non-RWA terms. This is a very good assumption for the typical parameters in the circuit QED measurements of transmons, and I have also checked it separately (see [Future improvement](#Sorting-nonRWA-Hamiltonian-eigenenergies))
 
 ## Goal
 Find the qubit levels, as well as the phton numbers at which level crossing between qubit-resonator levels occures.
@@ -29,12 +29,12 @@ In general, to get a complete manula for each function, run (in notebook or cons
 
 ## Known issues
 ##### Failing at large n
-When number of photon increases above some value (this value depends on parameters), the diagonalizer fails. This issue does not depen on how powerfull your machine is. This happens due to the way that I am sorting (labeling) the eigenvalues, and there is a physical reason for this. I may know a way to fix this, see the [future idea section](#Different-digonalizing/sorting).
+When number of photon increases above some value (this value depends on parameters), the diagonalizer fails. This issue does not depen on how powerfull your machine is. This happens due to the way that I am sorting (labeling) the eigenvalues, and there is a physical reason for this. I may know a way to fix this, see the [future idea section](#Different-digonalizing-and-sorting).
 
 ## Future improvements
 
-##### Different digonalizing/sorting
+##### Different digonalizing and sorting
 The system can be diagonalized in block matrices, and then all these matrices can be combined toghether to form the total system. This is not expected to make things faster, but it most probably prevents the issue of failing to sort the eigenenergies at large photon numbers.
 
-##### Sorting nonRWA Hamiltonian eigenstates/eigenstates
+##### Sorting nonRWA Hamiltonian eigenenergies
 This code diagonalizes and sorts the RWA Hamiltonian of the system. Although for the typical parameters in the circuit QED measurements of transmons this is a very good approximation, but one can also calculate the non-RWA eigenenergies and eigenstates. However, one can no longer use the same [method](https://arxiv.org/abs/1606.04204) to sort these non-RWA eigenenergies. There exists a way to sort these new eigenenergies, and I have a (not-cleaned-up) code that does this. I will add that as a new function to this package in the future.
